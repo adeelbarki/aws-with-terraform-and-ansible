@@ -12,3 +12,4 @@ cidrs = {
 }
 
 localip     = "0.0.0.0/0"
+domain_name = "bravethecloud"

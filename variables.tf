@@ -7,5 +7,6 @@ variable "cidrs" {
 }
 
 variable "localip" {}
+variable "domain_name" {}
 
 
