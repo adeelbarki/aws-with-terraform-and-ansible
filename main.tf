@@ -303,7 +303,7 @@ resource "aws_vpc_endpoint" "wp_private-s3_endpoint" {
 
   route_table_ids = [
     "${aws_vpc.wp_vpc.main_route_table_id}",
-    "${aws_route_table.wp_public_rt}"
+    "${aws_route_table.wp_public_rt.id}"
   ]
 
   policy = <<POLICY
