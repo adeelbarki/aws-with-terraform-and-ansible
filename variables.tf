@@ -6,3 +6,6 @@ variable "cidrs" {
   type = "map"
 }
 
+variable "localip" {}
+
+
