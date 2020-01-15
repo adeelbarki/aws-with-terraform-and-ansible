@@ -13,3 +13,8 @@ cidrs = {
 
 localip     = "0.0.0.0/0"
 domain_name = "bravethecloud"
+db_instance_class = "db.t2.micro"
+dbname = "superherodb"
+dbuser = "superhero"
+dbpassword = "*****"
+
