@@ -21,4 +21,8 @@ dev_instance_type = "t2.micro"
 dev_ami = "ami-07cda0db070313c52"
 public_key_path = "/home/cloud_user/.ssh/id_rsa.pub"
 key_name = "wp_key"
+elb_healthy_threshold = "2"
+elb_unhealthy_threshold = "2"
+elb_timeout = "3"
+elb_interval = "30"
 
