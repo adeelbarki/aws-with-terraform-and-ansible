@@ -389,7 +389,7 @@ EOF
 EOD
   }
   provisioner "local-exec" {
-    command ="aws ec2 wait instance-status-ok --instance-ids ${aws_instance.wp_dev.id} --profile superhero && ansible-playbook -i aws_hosts wordpress.yml"
+    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.wp_dev.id} --profile superhero && ansible-playbook -i aws_hosts wordpress.yml"
   }
 }
 
@@ -435,7 +435,7 @@ resource "aws_elb" "wp_elb" {
 
 # Random AMI ID
 resource "random_id" "golden_ami" {
-  byte_length = 3
+  byte_length = 8
 }
 
 # AMI
@@ -449,7 +449,7 @@ cat <<EOF > userdata
 #!/bin/bash
 /usr/bin/aws s3 sync s3://${aws_s3_bucket.code.bucket} /var/www/html/
 /bin/touch /var/spool/cron/root
-sudo /bin/echo '*/5 * * * * aws s3 sync s3://${aws_s3_bucket.code.bucket}' >> /var/spool/cron/root
+sudo /bin/echo '*/5 * * * * aws s3 sync s3://${aws_s3_bucket.code.bucket} /var/www/html/' >> /var/spool/cron/root
 EOF
 EOT
   }
