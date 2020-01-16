@@ -540,7 +540,9 @@ resource "aws_route53_record" "dev" {
 # # Private Zone
 resource "aws_route53_zone" "secondary" {
   name = "${var.domain_name}.org"
-  vpc_id = "${aws_vpc.wp_vpc.id}"
+  vpc {
+    vpc_id = "${aws_vpc.wp_vpc.id}"
+  }
 }
 
 # # Database
